@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "flowbite": "^2.3.0",
     "sass": "^1.74.1",
+    "tailwind": "^4.0.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
