@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Blogview from '@/views/Blogview.vue'
+import AuthorView from '@/views/AuthorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,8 +17,12 @@ const router = createRouter({
       component: Blogview
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/author',
+      name: 'AuthorView',
+      component: AuthorView,
+      meta:{
+        title: 'Author'
+      }
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

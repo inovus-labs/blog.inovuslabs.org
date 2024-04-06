@@ -5,30 +5,35 @@
     <div class="grid gap-8 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-end">
 
       <template v-for="post in posts" :key="post">
-        <div class="relative rounded-lg overflow-hidden h-80">
-          <div class="rounded-lg absolute">
-            <!-- <img :src="post.feature_image" :alt="post.title" /> -->
-            <img src="/assets/create-a-realistic-painting-or-digital-artwork-that-captures-the-emotional-depth-of-the-laughter-ma-118286241.png" alt="img">
+        <div class="relative mx-2 rounded-lg overflow-hidden h-max">
+          <div class="rounded-lg relative">
+            <img :src="post.feature_image" :alt="post.title" class="object-fit-cover h-96 w-full" />
+            <!-- <img src="/assets/create-a-realistic-painting-or-digital-artwork-that-captures-the-emotional-depth-of-the-laughter-ma-118286241.png" alt="img"> -->
           </div>
-          <div class="bg-black bg-opacity-10 flex flex-col items-center justify-end pb-4 relative">
-            <h1 class="text-white text-xl font-bold">{{ post.title }}</h1>
-            <p class="text-gray-100 text-sm">{{ post.slug }}</p>
-          </div>
+          <div class="absolute inset-0 bg-primary pl-2 pr-2 bg-opacity-40 flex flex-col items-center text-left justify-end pb-4">
+            <h1 class="text-white text-left text-lg font-bold">{{ post.title }}</h1>
+            <hr class="h-px bg-white relative border-0 dark:bg-gray-700">
+            <p class="text-white left-0 text-left">Read More</p>
+          </div>  
         </div>
       </template>
 
     </div>
   </div>
 
+  <Footer />
+
 </template>
 <script>
-import Navbar from '@/components/Navbar.vue';
+import Navbar from '@/components/reusable/Navbar.vue';
+import Footer from '@/components/reusable/Footer.vue';
 import { getPosts } from '@/API/index.js';
 
 export default {
   name: 'HomeView',
   components: {
     Navbar,
+    Footer
   },
   data() {
     return {

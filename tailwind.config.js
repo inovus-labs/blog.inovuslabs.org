@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        bgPrimary: '#FBFBFF', // background primary
-        primary: '#111928', // text 
-        secondary: '#6C2BD9', // selection / hover
-        dark: '6C2BD9', // Darkmod
+        bgPrimary: '#FBFBFF', // background primary white
+        primary: '#111928', // text  black
+        secondary: '#6C2BD9', // selection / hover violet
+        dark: '6C2BD9', // Darkmod darkviolet
       }
     }
   },
