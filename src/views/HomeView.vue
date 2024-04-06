@@ -1,7 +1,4 @@
 <template>
-  <div class="home-view">
-    <h1>Home View</h1>
-  </div>
   <Navbar/>
 
 </template>
@@ -14,10 +11,4 @@ export default{
   }
 }
   
-</script>
-
-<script>
-export default {
-  name: 'HomeView'
-}
 </script>
