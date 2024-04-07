@@ -16,11 +16,13 @@
 <script>
 import Navbar from '@/components/reusable/Navbar.vue'
 import AuthorCard from '@/components/AuthorCard.vue'
+import Footer from '@/components/reusable/Footer.vue'
 
 export default{
     name: 'AuthorView',
     components: {
         Navbar,
+        Footer,
         AuthorCard
     },
     data(){
