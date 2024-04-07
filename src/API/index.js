@@ -1125,13 +1125,25 @@
 //     return posts;
 // }
 
-export const getPosts = async()=>{
+
+import axios from 'axios';
+
+export const getPosts = async ()=>{
     try{
-        const posts = await axios.get(`${import.meta.env.BLOG_API_BASE_URL}/api/v1/posts`);
-        return posts.data;
-        console.log(res.data);
+        const posts = await axios.get(`${import.meta.env.VITE_APP_BLOG_API_BASE_URL}/api/v1/posts?limit=20`);
+        return posts.data.data;
     } catch{
         console.log(error);
+        return error;
+    }
+}
+
+export const getAuthors = async () => {
+    try{
+        const author = await axios.get(`${import.meta.env.VITE_APP_BLOG_API_BASE_URL}/api/v1/authors?page=1&limit=100`);
+        return author.data.data;
+    } catch{
+        console.log(error)
         return error;
     }
 }
