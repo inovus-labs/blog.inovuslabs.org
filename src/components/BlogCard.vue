@@ -5,8 +5,8 @@
             <img :src="post.feature_image" :alt="post.title" class="h-96 w-full object-cover" />
         </div>
         <div class="absolute inset-0 flex flex-col text-left justify-end post-overlay">
-            <h1 class="text-white p-5 text-left text-xl font-medium leading-snug post-title">{{ post.title }}</h1>
-            <p class="text-xs text-white px-5 py-3 text-left">READ MORE</p>
+            <h1 class="text-white p-5 text-left text-xl font-bold leading-snug post-title">{{ post.title }}</h1>
+            <p class="text-xs text-white font-bold px-5 py-3 text-left">READ MORE</p>
         </div>
     </div>
 

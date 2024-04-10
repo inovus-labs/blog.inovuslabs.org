@@ -30,7 +30,6 @@ export const getAuthors = async () => {
 export const getPostBySlug = async (slug) => {
     try{
         const post = await axios.get(`${import.meta.env.VITE_APP_BLOG_API_BASE_URL}/api/v1/posts/${slug}`);
-        console.log(post.data.data);
         return post.data.data;
     } catch{
         console.log(error);
