@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import HomeView from "../views/HomeView.vue";
 import Blogview from "@/views/Blogview.vue";
 import AuthorView from "@/views/AuthorView.vue";
@@ -11,11 +12,13 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      meta: {
+        title: "Home",
+      },
     },
     {
-      path: "/blog",
-      name: "blog",
-      component: Blogview,
+      path: "/:slug",
+      component: Blogview
     },
     {
       path: "/author",
@@ -24,10 +27,6 @@ const router = createRouter({
       meta: {
         title: "Author",
       },
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import('../views/AboutView.vue')
     },
     {
       path: "/Tag",
@@ -39,5 +38,12 @@ const router = createRouter({
     },
   ],
 });
+
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} - Inovus Blogs`;
+  next();
+});
+
 
 export default router;
