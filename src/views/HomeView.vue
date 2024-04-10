@@ -1,62 +1,71 @@
 <template>
   <Navbar />
 
-  <div class="py-8 mx-auto max-w-screen-xl mt-8 text-center lg:py-12 lg:px-6">
-    <div class="grid gap-8 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-end">
+  <div class="bg-layer">
 
-      <template v-for="post in posts" :key="post">
-        <a :href="blogPath(post.slug)">
-        <div class="relative mx-2 rounded-lg overflow-hidden h-max">
-          <div class="rounded-lg relative">
-            <img :src="post.feature_image" :alt="post.title" class="object-fit-cover h-96 w-full" />
-            <!-- <img :src="getImageUrl(post.feature_image);" :alt="post.title" class="object-fit-cover h-96 w-full" />
-            <img :src="getImageUrl(post.feature_image);"/> -->
-          </div>
-          <div class="absolute inset-0 bg-primary pl-2 pr-2 bg-opacity-40 flex flex-col items-center text-left justify-end pb-4">
-            <h1 class="text-white text-left text-lg font-bold">{{ post.title }}</h1>
-            <hr class="h-px bg-white relative border-0 dark:bg-gray-700">
-            <p class="text-white left-0 text-left">Read More</p>
-          </div>  
-        </div>
-       </a>
-      </template>
+    <div class="mx-auto max-w-screen-xl py-8 text-center">
+      <div class="grid gap-8 mx-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-end">
 
-      <!-- <div>
-        <h1>{{ posts.title }}</h1>
-      </div> -->
+        <template v-for="post in posts" :key="post">
+          <a :href="post.slug">
 
+            <BlogCard :post="post" />
+
+          </a>
+        </template>
+
+      </div>
     </div>
   </div>
 
   <Footer />
-
 </template>
+
+
 <script>
 import Navbar from '@/components/reusable/Navbar.vue';
 import Footer from '@/components/reusable/Footer.vue';
+import BlogCard from '@/components/BlogCard.vue';
+
 import { getPosts } from '@/API/index.js';
 
 export default {
   name: 'HomeView',
   components: {
     Navbar,
-    Footer
+    Footer,
+    BlogCard
   },
+
   data() {
     return {
       posts: []
     }
   },
+
   async mounted() {
-    await getPosts().then((data) => {
-      this.posts = data.posts;
-    })
+    await this.getPostData();
   },
+
   methods: {
-    blogPath(slug) {
-            return "/" + slug
-        },
+    async getPostData() {
+      await getPosts().then((data) => {
+        this.posts = data.posts.sort((a, b) => {
+          return new Date(b.published_at) - new Date(a.published_at);
+        });
+      })
+    }
   }
+
+}
+</script>
+
+<style>
+.post-overlay {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-</script>
+.bg-layer {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.35) 100%), url('/public/assets/leaves.png');
+}
+</style>
