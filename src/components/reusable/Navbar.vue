@@ -5,7 +5,7 @@
   <nav class="bg-white border-b">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
       <a href="/" class="flex items-center">
-        <img src="/assets/logo.svg" class="lg:h-12 h-10 mr-3" alt="Inovus Labs Logo" />
+        <img src="/assets/logo_white.svg" class="lg:h-12 h-10 mr-3" alt="Inovus Labs Logo" />
       </a>
 
 
