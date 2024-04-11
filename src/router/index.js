@@ -5,6 +5,9 @@ import Blogview from "@/views/Blogview.vue";
 import AuthorView from "@/views/AuthorView.vue";
 import TagView from "@/views/TagView.vue";
 
+import AdminView from "@/views/admin/HomeView.vue";
+import EditorView from "@/views/admin/EditorView.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,6 +39,25 @@ const router = createRouter({
         title: "Tag",
       },
     },
+
+
+    {
+      path: "/admin",
+      name: "admin",
+      component: AdminView,
+      meta: {
+        title: "Admin",
+      },
+    },
+    {
+      path: "/admin/editor/post",
+      name: "editor",
+      component: EditorView,
+      meta: {
+        title: "Editor",
+      },
+    },
+
   ],
 });
 
