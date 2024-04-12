@@ -5,7 +5,7 @@ import axios from 'axios';
 // Get all posts for the home page
 export const getPosts = async ()=>{
     try{
-        const posts = await axios.get(`${import.meta.env.VITE_APP_BLOG_API_BASE_URL}/api/v1/posts?limit=20&page=2`);
+        const posts = await axios.get(`${import.meta.env.VITE_APP_BLOG_API_BASE_URL}/api/v1/posts?limit=50`);
         return posts.data.data;
     } catch{
         console.log(error);
